@@ -7,7 +7,7 @@
             
             div.creature{
                 padding:5px;
-                border:2px solid pink;
+                border:2px solid black;
                 border-radius:10px;
                 max-width:400px;
                 min-height:100px;
@@ -21,7 +21,7 @@
             }
             
             div.creature{
-                background-color: yellow;
+                background-color: white;
             }
             
         </style>
@@ -114,21 +114,17 @@
                     
                     switch(myHome){
                         case "land":
-                        myNodeList[x].style.backgroundColor = "green";
-                        break;
+                            myNodeList[x].style.backgroundColor = "green";
+                            break;
                         case "air":
-                        myNodeList[x].style.backgroundColor = "yellow";
-                        break;
+                            myNodeList[x].style.backgroundColor = "yellow";
+                            break;
                         case "water":
-                        myNodeList[x].style.backgroundColor = "blue";
-                        break;
+                            myNodeList[x].style.backgroundColor = "blue";
+                            break;
                     }
-                    //myNodeList[x].style.backgroundColor = 'yellow';
-                }
-
-            
-        }//end showHome()
-        
+                }  
+        }
         function showType()
         {
             /*
@@ -137,19 +133,44 @@
                 if creature is an animal, border color solid red
                 if creature is an insect, border color is dashed orange
             */
+            const myNodeList = document.querySelectorAll("div.creature")
+               console.log(myNodeList);
+
+                for(let x = 0; x < myNodeList.length; x++){
+
+                    const myType = myNodeList[x].dataset.creatureType;
+
+                    switch(myType){
+                        case "insect":
+                            myNodeList[x].style.border = "2px dashed orange";
+                            break;
+                        case "animal":
+                            myNodeList[x].style.border = "2px solid red";
+                            break;
+                        default:
+                            myNodeList[x].style.border = "2px solid black";
+                            break;
+                    }
+                }
             //Alert("showType()");
         }//end showType()
 
         function clearAll()
-        {
+{
+            const myNodeList = document.querySelectorAll("div.creature")
+
+            for(let x = 0; x < myNodeList.length; x++){
+                myNodeList[x].style.backgroundColor = "white";
+                myNodeList[x].style.border = "2px solid black";
+            }
             /*
                 loop through all creatures
                 
                 clear border back to 1px solid black
                 clear background color to white
-                
+               
             */
-            alert("clearAll()");
+            //alert("clearAll()");
         }//end clearAll()
 
     </script>    
